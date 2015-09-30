@@ -14,7 +14,7 @@ This is due 7/1/2015
 import pandas as pd
 # pd.set_option('max_colwidth', 50)
 # set this if you need to
-import pylab as plt
+import matplotlib.pyplot as plt
 
 killings = pd.read_csv('data/police-killings.csv')
 killings.head()
@@ -143,14 +143,12 @@ plt.show();
 # 8. Plot a histogram of the distribution of median salaries by major category
 
 #Is this what they want?  
-majors.groupby('Major_category').Median.mean().hist()
+majors.groupby('Major_category').Median.mean().hist(bins = 5)
 plt.title("Count by Average Median Salary for Each Major Category")
 plt.xlabel("Average Median Salary by Major Category")
 plt.ylabel("Major Category Count")
 plt.show();
 
-#or something like this?
-majors.Median.hist(by = majors.Major_category, sharex = True, sharey = True, bins=10)
 
 # 9. What are the top 10 most UNemployed majors?
 # What are the unemployment rates?
